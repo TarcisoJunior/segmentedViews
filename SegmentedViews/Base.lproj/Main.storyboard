@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,104 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SegmentedViews" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdr-8I-sC3">
+                                <rect key="frame" x="16" y="62" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1dh-U5-QYW">
+                                <rect key="frame" x="127" y="101" width="121" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <connections>
+                                    <action selector="smTap:" destination="BYZ-38-t0r" eventType="valueChanged" id="Kma-FX-Lu7"/>
+                                </connections>
+                            </segmentedControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" restorationIdentifier="firstView" translatesAutoresizingMaskIntoConstraints="NO" id="cDX-XA-9Ls">
+                                <rect key="frame" x="0.0" y="145" width="375" height="522"/>
+                                <connections>
+                                    <segue destination="5IK-Rd-IU8" kind="embed" id="Iep-9V-2ti"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uks-qd-a6r">
+                                <rect key="frame" x="0.0" y="145" width="375" height="522"/>
+                                <connections>
+                                    <segue destination="Qaf-HL-kvB" kind="embed" id="5r4-1u-LYC"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="uks-qd-a6r" secondAttribute="bottom" id="2Z5-89-CYN"/>
+                            <constraint firstItem="uks-qd-a6r" firstAttribute="top" secondItem="1dh-U5-QYW" secondAttribute="bottom" constant="16" id="GL8-xX-8Zz"/>
+                            <constraint firstItem="mdr-8I-sC3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="JuF-PL-nMC"/>
+                            <constraint firstItem="1dh-U5-QYW" firstAttribute="top" secondItem="mdr-8I-sC3" secondAttribute="bottom" constant="18" id="Lsz-2H-Ym6"/>
+                            <constraint firstItem="cDX-XA-9Ls" firstAttribute="top" secondItem="1dh-U5-QYW" secondAttribute="bottom" constant="16" id="QWq-Tt-G07"/>
+                            <constraint firstItem="1dh-U5-QYW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RhP-Ka-tth"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uks-qd-a6r" secondAttribute="trailing" id="SVO-7O-Bj2"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="cDX-XA-9Ls" secondAttribute="bottom" id="T9V-z1-ENS"/>
+                            <constraint firstItem="uks-qd-a6r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fSr-H2-2vR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cDX-XA-9Ls" secondAttribute="trailing" id="hWQ-Ak-slb"/>
+                            <constraint firstItem="mdr-8I-sC3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="42" id="lJj-lH-QbB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mdr-8I-sC3" secondAttribute="trailing" constant="16" id="pqH-73-S2M"/>
+                            <constraint firstItem="cDX-XA-9Ls" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wzu-7M-zUs"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="secondView" destination="uks-qd-a6r" id="fWn-qf-0Ba"/>
+                        <outlet property="smBtn" destination="1dh-U5-QYW" id="uE2-iK-fh5"/>
+                        <outlet property="startView" destination="cDX-XA-9Ls" id="SIm-gt-Jl2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="8Pg-Xw-Osm">
+            <objects>
+                <viewController id="5IK-Rd-IU8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tXH-Er-euQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="522"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HGA-0V-yRx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1001" y="-322"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="guw-Nc-LeN">
+            <objects>
+                <viewController id="Qaf-HL-kvB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tze-z0-vM3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="522"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlB-0g-wtd">
+                                <rect key="frame" x="116" y="140" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Su1-Wl-63g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="806" y="272"/>
         </scene>
     </scenes>
 </document>

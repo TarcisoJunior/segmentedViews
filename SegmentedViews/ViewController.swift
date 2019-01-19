@@ -10,11 +10,27 @@ import UIKit
 
 class ViewController: UIViewController {
 
+  
+    @IBOutlet weak var startView: UIView!
+    @IBOutlet weak var secondView: UIView!
+    @IBOutlet weak var smBtn: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-
+    @IBAction func smTap(_ sender: UISegmentedControl) {
+        
+        if (smBtn.selectedSegmentIndex == 0) {
+            startView.alpha = 1
+            secondView.alpha = 0
+        } else {
+            startView.alpha = 0
+            secondView.alpha = 1
+        }
+    }
+    
+    
 }
 
